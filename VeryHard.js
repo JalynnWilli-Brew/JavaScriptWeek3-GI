@@ -27,17 +27,17 @@ class Programmer {
         this.name=name;
         this.age=age;
         this.job=job;
-        this.language=language;
+        this.language=[language];
         this.busy=true;
-    };
+    }
 
 completeTask(){
     return this.busy = false;
-};
+}
 
 acceptNewTask(){
     return this.busy = false;
-};
+}
 
 offerNewTask() {
     if (this.busy) {
@@ -45,23 +45,25 @@ offerNewTask() {
     }
     else {
         console.log(`${this.name} would like to take on a new responsibility`);
-    };
+    }
 
-};
+}
 
-learnLanguage(lang){
-    this.language.push(lang);
+learnLanguage(language){
+    this.language.push(language);
+    console.log(`${this.name} has finally learned a new language ${language}`);
 
-};
+}
 //Very confused on the number 7, quite a few of us are stuck on this.
 listLanguages(){
-    console.log(`${this.name} knows these languages ${this.language}`);
-};
-    };
+    console.log(`${this.name} knows these languages ${this.language.toString()}`);
+}
+    }
 
 
 let programmer1 = new Programmer(person1.name, person1.age, person1.job, "CSS");
 console.log(programmer1);
+
+programmer1.learnLanguage("JavaScript");
+programmer1.learnLanguage("HTML");
 programmer1.listLanguages();
-programmer1.learnLanguage('JavaScript');
-programmer1.learnLanguage('HTML');
