@@ -29,32 +29,39 @@ class Programmer {
         this.job=job;
         this.language=language;
         this.busy=true;
-    }
+    };
 
 completeTask(){
     return this.busy = false;
-}
+};
 
 acceptNewTask(){
     return this.busy = false;
-}
+};
 
 offerNewTask() {
-    return (this.busy ? `${this.name} can accept new tasks right now` : `${this.name} can not accept new tasks right now`);
+    if (this.busy) {
+        console.log(`${this.name} can not accept more tasks right now`);
+    }
+    else {
+        console.log(`${this.name} would like to take on a new responsibility`);
+    };
 
-}
-//Honestly, I do not know how to do this part. Quite a few of us kept trying to figure it out but can't
-listLanguages(){
-    return console.log(...this.language)
-}
+};
 
 learnLanguage(lang){
-    this.language.push(lang)
-    return console.log()
-}
-    }
+    this.language.push(lang);
+
+};
+//Very confused on the number 7, quite a few of us are stuck on this.
+listLanguages(){
+    console.log(`${this.name} knows these languages ${this.language}`);
+};
+    };
 
 
-let programmer1 = new Programmer(person1.name, person1.age, person1.job, "CSS", "JavaScript", "HTML");
+let programmer1 = new Programmer(person1.name, person1.age, person1.job, "CSS");
 console.log(programmer1);
-console.log(programmer1.listLanguages());
+programmer1.listLanguages();
+programmer1.learnLanguage('JavaScript');
+programmer1.learnLanguage('HTML');
